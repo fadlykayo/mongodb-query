@@ -2,7 +2,7 @@
 
 # Information
 
-Membuat query-query di dalam database mongodb-query
+Membuat query-query di dalam database MongoDB
 
 # Queries
 
