@@ -201,26 +201,65 @@ BulkWriteResult({
 
 #### 11. Menampilkan key studentId, name, dan address dari data student yang mempunyai studentId tertentu
 
+`db.student.find({studentId:"001"},{"studentId":1,"name":1,"address":1,_id:0})
+{ "studentId" : "001", "name" : "Fadly Kayo", "address" : "Jakarta" }`
 ```
-use academic
+{ "studentId" : "001", "name" : "Fadly Kayo", "address" : "Jakarta" }
 ```
 
 #### 12. Menampilkan semua data student secara urut berdasarkan name dengan sort() ascending dan descending
 
+Ascending
+
+`db.student.find().sort({name:1})`
 ```
-use academic
+{ "_id" : ObjectId("58901ad5af7b648be41c6517"), "studentId" : "004", "name" : "Alicia", "address" : "Medan", "department" : DBRef("department", ObjectId("58901889af7b648be41c6514"), "academic") }
+{ "_id" : ObjectId("5890135eaf7b648be41c650f"), "studentId" : "001", "name" : "Fadly Kayo", "address" : "Jakarta", "department" : DBRef("department", ObjectId("5890109eaf7b648be41c650e"), "academic") }
+{ "_id" : ObjectId("58901ad5af7b648be41c6515"), "studentId" : "002", "name" : "Gana", "address" : "Bali", "department" : DBRef("department", ObjectId("58901889af7b648be41c6511"), "academic") }
+{ "_id" : ObjectId("58901ad5af7b648be41c6516"), "studentId" : "003", "name" : "Iqbal", "address" : "Bandung", "department" : DBRef("department", ObjectId("58901889af7b648be41c6511"), "academic") }
+```
+
+Descending
+
+`db.student.find().sort({name:-1})`
+```
+{ "_id" : ObjectId("58901ad5af7b648be41c6516"), "studentId" : "003", "name" : "Iqbal", "address" : "Bandung", "department" : DBRef("department", ObjectId("58901889af7b648be41c6511"), "academic") }
+{ "_id" : ObjectId("58901ad5af7b648be41c6515"), "studentId" : "002", "name" : "Gana", "address" : "Bali", "department" : DBRef("department", ObjectId("58901889af7b648be41c6511"), "academic") }
+{ "_id" : ObjectId("5890135eaf7b648be41c650f"), "studentId" : "001", "name" : "Fadly Kayo", "address" : "Jakarta", "department" : DBRef("department", ObjectId("5890109eaf7b648be41c650e"), "academic") }
+{ "_id" : ObjectId("58901ad5af7b648be41c6517"), "studentId" : "004", "name" : "Alicia", "address" : "Medan", "department" : DBRef("department", ObjectId("58901889af7b648be41c6514"), "academic") }
 ```
 
 #### 13. Menampilkan semua data department secara urut berdasarkan name secara ascending dan descending
 
+Ascending
+
+`db.department.find().sort({name:1})`
 ```
-use academic
+{ "_id" : ObjectId("58901889af7b648be41c6512"), "code" : "Art", "name" : "Design", "major" : "Design Interior" }
+{ "_id" : ObjectId("58901889af7b648be41c6513"), "code" : "Art", "name" : "Design", "major" : "Mode Design" }
+{ "_id" : ObjectId("58901889af7b648be41c6514"), "code" : "Dokter", "name" : "Kedokteran", "major" : "Penyakit Dalam" }
+{ "_id" : ObjectId("5890109eaf7b648be41c650e"), "code" : "IT", "name" : "Teknik", "major" : "Teknik Elektro" }
+{ "_id" : ObjectId("58901889af7b648be41c6510"), "code" : "Sipil", "name" : "Teknik", "major" : "Teknik Sipil" }
+{ "_id" : ObjectId("58901889af7b648be41c6511"), "code" : "DKV", "name" : "Teknik", "major" : "Teknik Design Grafis" }
+```
+
+Descending
+
+`db.student.find().sort({name:-1})`
+```
+{ "_id" : ObjectId("5890109eaf7b648be41c650e"), "code" : "IT", "name" : "Teknik", "major" : "Teknik Elektro" }
+{ "_id" : ObjectId("58901889af7b648be41c6510"), "code" : "Sipil", "name" : "Teknik", "major" : "Teknik Sipil" }
+{ "_id" : ObjectId("58901889af7b648be41c6511"), "code" : "DKV", "name" : "Teknik", "major" : "Teknik Design Grafis" }
+{ "_id" : ObjectId("58901889af7b648be41c6514"), "code" : "Dokter", "name" : "Kedokteran", "major" : "Penyakit Dalam" }
+{ "_id" : ObjectId("58901889af7b648be41c6512"), "code" : "Art", "name" : "Design", "major" : "Design Interior" }
+{ "_id" : ObjectId("58901889af7b648be41c6513"), "code" : "Art", "name" : "Design", "major" : "Mode Design" }
 ```
 
 #### 14. Mencari data student dengan name
 
+`db.student.find({name:"Fadly Kayo"})`
 ```
-use academic
+{ "_id" : ObjectId("5890135eaf7b648be41c650f"), "studentId" : "001", "name" : "Fadly Kayo", "address" : "Jakarta", "department" : DBRef("department", ObjectId("5890109eaf7b648be41c650e"), "academic") }
 ```
 
 # Usage
